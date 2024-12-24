@@ -12,14 +12,14 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp() {
-    driver = DriverFactory.getDriver(DriverFactory.BrowserType.chrome);
-    driver.get("https://shopee.vn/buyer/login?next=https%3A%2F%2Fshopee.vn%2F");;
+    driver = DriverFactory.getDriver(DriverFactory.BrowserType.edge);
+    driver.get("https://www.youtube.com/");;
 
     }
-    @AfterMethod
-    public void tearDown(){
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        driver.quit();
+//    }
 
 
 }
