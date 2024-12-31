@@ -10,17 +10,14 @@ import org.testng.annotations.Test;
 public class LoginPage extends BasePage {
 
     // locators
-    private final By usernameField = By.xpath("(//input[@class='X0Jdtz'])[1]");
-    private final By passwordField = By.xpath("(//input[@class='X0Jdtz'])[2]");
-    private final By loginButton = By.xpath("//button[@class=\"b5aVaf PVSuiZ Gqupku qz7ctP qxS7lQ Q4KP5g\"]");
-
+    private final By usernameField = By.id("identifierId");
+    private final By nextBtn = By.xpath("(//span[@class=\"VfPpkd-vQzf8d\"])[2]");
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-    public void login(String username, String password){
-        sendKeys(usernameField,username);
-        sendKeys(passwordField,password);
-        click(loginButton);
 
+    public void login(String username) {
+        sendKeys(usernameField, username);
+        click(nextBtn);
     }
 }

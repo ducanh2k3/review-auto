@@ -16,10 +16,10 @@ public class TestBase {
     driver.get("https://www.youtube.com/");;
 
     }
-//    @AfterMethod
-//    public void tearDown(){
+    @AfterMethod
+    public void tearDown(){
 //        driver.quit();
-//    }
+    }
 
 
 }
