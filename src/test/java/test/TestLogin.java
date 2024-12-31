@@ -16,7 +16,7 @@ public class TestLogin extends TestBase {
         loginPage.login("emailfortest90876@gmail.com");
         FillPasswordPage fillPasswordPage = new FillPasswordPage(driver);
         fillPasswordPage.fillPassword("21022003ducanh");
-        homePage.findVideo("illit");
+        homePage.findVideo("sontungmtp");
         ResultSearchPage resultSearchPage = new ResultSearchPage(driver);
         resultSearchPage.selectVideoByIndex(1);
 
