@@ -3,6 +3,7 @@ package page;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
@@ -20,6 +21,10 @@ public class HomePage extends BasePage {
     public void findVideo(String nameVideo) {
         sendKeys(searchText, nameVideo);
         click(findButton);
+    }
+
+    public void isLoggedIn() {
+        Assert.assertTrue(isDisplayed(signinButton));
     }
 
 }

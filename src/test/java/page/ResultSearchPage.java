@@ -3,6 +3,7 @@ package page;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class ResultSearchPage extends BasePage {
     public ResultSearchPage(WebDriver driver) {
@@ -16,4 +17,11 @@ public class ResultSearchPage extends BasePage {
         By videoTitleXpathIndex = By.xpath(videoTitlexpath + "[" + n + "]");
         click(videoTitleXpathIndex);
     }
+
+    public void checkResultByUrl(String findText) {
+        String url = getCurrentUrl();
+        Assert.assertTrue(url.contains(findText));
+
+    }
+
 }

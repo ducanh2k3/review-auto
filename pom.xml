@@ -27,6 +27,13 @@
       <artifactId>selenium-java</artifactId>
       <version>4.27.0</version>
     </dependency>
+    <!-- POM dependency for ExtentReports -->
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>5.0.9</version>
+    </dependency>
+
 
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
