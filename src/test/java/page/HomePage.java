@@ -9,7 +9,6 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
-
     private final By signinButton = By.xpath("//div[@id='buttons']//yt-button-shape");
     private final By searchText = By.xpath("//input[@role='combobox']");
     private final By findButton = By.xpath("//button[@class='ytSearchboxComponentSearchButton ytSearchboxComponentSearchButtonDark']");

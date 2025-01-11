@@ -10,11 +10,13 @@ import page.ResultSearchPage;
 public class TestFile extends TestBase {
     @Test
     public void findVideoTest() {
+        String searchKeyword = "sontungmtp";
+
         HomePage homePage = new HomePage(driver);
-        homePage.findVideo("sontungmtp");
+        homePage.findVideo(searchKeyword);
         ResultSearchPage resultSearchPage = new ResultSearchPage(driver);
-        resultSearchPage.checkResultByUrl( "sontungmtp");
-//        resultSearchPage.selectVideoByIndex(1);
+        resultSearchPage.checkResultByUrl(searchKeyword);
+        resultSearchPage.checkTitle(searchKeyword);
     }
 
 
