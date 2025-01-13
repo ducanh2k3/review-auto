@@ -2,10 +2,7 @@ package test;
 
 import base.TestBase;
 import org.testng.annotations.Test;
-import page.FillPasswordPage;
-import page.HomePage;
-import page.LoginPage;
-import page.ResultSearchPage;
+import page.*;
 
 public class TestFile extends TestBase {
     @Test
@@ -17,6 +14,16 @@ public class TestFile extends TestBase {
         ResultSearchPage resultSearchPage = new ResultSearchPage(driver);
         resultSearchPage.checkResultByUrl(searchKeyword);
         resultSearchPage.checkTitle(searchKeyword);
+    }
+
+    @Test
+    public void isVideoRunningTest() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.findVideo("vtv24");
+        ResultSearchPage resultSearchPage = new ResultSearchPage(driver);
+        resultSearchPage.selectVideoByIndex(1);
+        VideoPage videoPage = new VideoPage(driver);
+        videoPage.isVideoRunning();
     }
 
 
