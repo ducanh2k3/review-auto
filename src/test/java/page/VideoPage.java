@@ -13,15 +13,25 @@ public class VideoPage extends BasePage {
         super(driver);
     }
 
-    private final By pauseButton = By.xpath("//button[@aria-label='Pause keyboard shortcut k']");
+
     private final WebElement videoArea = driver.findElement(By.cssSelector("video"));
+    final By expandButton = By.xpath("(//button[@class=\"yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button\"])[1]");
+    final By saveButton = By.xpath("//ytd-menu-service-item-renderer[2]//tp-yt-paper-item[1]");
+
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
     public void isVideoRunning() throws InterruptedException {
-            Thread.sleep(5000);
-            Boolean isPaused = (Boolean) js.executeScript("return arguments[0].paused;", videoArea);
-            System.out.println("Video đang chạy: " + !isPaused);
-            Assert.assertTrue(!isPaused);
+        Thread.sleep(5000);
+        Boolean isPaused = (Boolean) js.executeScript("return arguments[0].paused;", videoArea);
+        System.out.println("Video đang chạy: " + !isPaused);
+        Assert.assertTrue(!isPaused);
     }
 
+    public void addVideoToWatchLater() throws InterruptedException {
+
+        click(expandButton);
+       Thread.sleep(5000);
+//        click(saveButton);
+
+    }
 }
