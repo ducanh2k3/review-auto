@@ -15,8 +15,12 @@ public class VideoPage extends BasePage {
 
 
     private final WebElement videoArea = driver.findElement(By.cssSelector("video"));
-    final By expandButton = By.xpath("(//button[@class=\"yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button\"])[1]");
-    final By saveButton = By.xpath("//ytd-menu-service-item-renderer[2]//tp-yt-paper-item[1]");
+    private final By expandButton = By.xpath("(//button[@class=\"yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button\"])[1]");
+    private final By saveButton = By.xpath("//yt-formatted-string[normalize-space()='Save']");
+    private final By choosePlayList = By.xpath("(//div[@id=\"checkbox\"])[1]");
+    private final By choosePlayListToClick = By.xpath("(//div[@id='checkbox'])[1]/parent::*");
+    public String videoTitleXpath  = By.xpath("")
+
 
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -28,10 +32,14 @@ public class VideoPage extends BasePage {
     }
 
     public void addVideoToWatchLater() throws InterruptedException {
-
         click(expandButton);
-       Thread.sleep(5000);
-//        click(saveButton);
-
+        click(saveButton);
+        System.out.println(getClassAttribute(choosePlayList));
+        if(getClassAttribute(choosePlayList).contains("checked")){
+            System.out.println("video da duoc them vao danh sach phat tu truoc ");
+        }else {
+            click(choosePlayListToClick);
+            Thread.sleep(1000);
+        }
     }
 }

@@ -19,22 +19,18 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    // method
-
-    //click with wait
 
     protected void click(By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
-    //send text
     protected void sendKeys(By locator, String text) {
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         element.clear();
         element.sendKeys(text);
     }
 
-    //check if displayed
+
     protected boolean isDisplayed(By locator) {
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(locator)).isDisplayed();
@@ -43,27 +39,31 @@ public abstract class BasePage {
         }
     }
 
-    // get text
+
     protected String getText(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator)).getText();
     }
-
-    // wait element visible
     protected WebElement waitForElementVisible(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+    protected String getClassAttribute(By locator) {
+        try {
+            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            return element.getAttribute("class");
+        } catch (Exception e) {
+            System.err.println("Không thể lấy giá trị thuộc tính 'class': " + e.getMessage());
+            return null;
+        }
+    }
 
-    // navigate
     protected void navigateToUrl(String url) {
         driver.navigate().to(url);
     }
 
-    // get current title
     protected String getPageTitle() {
         return driver.getTitle();
     }
 
-    // get current url
     protected String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
